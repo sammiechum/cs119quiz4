@@ -8,6 +8,7 @@ current_word = None
 current_totalValence = 0
 word = None
 count = 0
+totalvalence = 0
 
 # input comes from STDIN
 for line in sys.stdin:
@@ -37,8 +38,10 @@ for line in sys.stdin:
             # print ('%s\t%s' % (current_word, current_count))
         current_count = count
         current_word = word
+        current_totalValence = totalvalence
     
     
 # # do not forget to output the last word if needed!
 if current_word == word:
-    print ('%s\t%s' % (current_word, current_count))
+    average = current_totalValence/count
+    print ('%s\t%s' % (current_word, average))
