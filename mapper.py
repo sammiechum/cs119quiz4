@@ -27,7 +27,6 @@ def determineValence(content):
         for i in range (len(library)):
             if (library[i]["word"] == word):
                 key = os.environ['mapreduce_map_input_file']
-                key = word
                 value = library[i]["value"]
                 print(key,"\t",value)
 
