@@ -22,7 +22,7 @@ for line in sys.stdin:
     try:
         valence = int(valence)
     except ValueError:
-        # valence was not a number, so silently
+        # count was not a number, so silently
         # ignore/discard this line
         continue
     # this IF-switch only works because Hadoop sorts map output
@@ -30,15 +30,18 @@ for line in sys.stdin:
     if current_word == word:
         current_totalValence += valence
         count += 1
+        # print("Valence is", valence, "count is", count)
     else:
         if current_word:
             # write result to STDOUT
             average = current_totalValence/count
             print ('%s\t%s' % (current_word, average))
             # print ('%s\t%s' % (current_word, current_count))
-        current_count = count
+        # print("Reset for next word")
+        count = 1
         current_word = word
-        current_totalValence = totalvalence
+        current_totalValence = valence
+        print(current_word, current_totalValence)
     
     
 # # do not forget to output the last word if needed!
