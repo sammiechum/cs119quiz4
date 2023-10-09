@@ -31,7 +31,7 @@ def determineValence(content):
 
 
 def main(argv):
-    # line = sys.stdin.readline()
+    line = sys.stdin.readline()
     with open('AFINN.txt', 'r') as file:
         for line in file:
             words = line.split()
@@ -40,10 +40,13 @@ def main(argv):
                 "value": words[1] }
             library.append(dict)
         # print(library)
-        
-    line = sys.stdin.readline() 
-    determineValence(line)
-          
+    
+    try:
+        while line:
+            determineValence(line)
+            line = sys.stdin.readline()
+    except EOFError as error:
+        return None
 
 if __name__ == "__main__":
     main(sys.argv)
