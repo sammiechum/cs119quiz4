@@ -20,9 +20,9 @@ for line in sys.stdin:
 
     # convert count (currently a string) to int
     try:
-        valence = int(count)
+        valence = int(valence)
     except ValueError:
-        # count was not a number, so silently
+        # valence was not a number, so silently
         # ignore/discard this line
         continue
     # this IF-switch only works because Hadoop sorts map output
