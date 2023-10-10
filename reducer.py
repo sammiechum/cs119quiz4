@@ -36,8 +36,7 @@ for line in sys.stdin:
             # write result to STDOUT
             average = float(current_totalValence/count)
             print ('%s\t%s' % (current_word, average))
-            print("Total sum is", current_totalValence, "number of words is", count)
-            # print ('%s\t%s' % (current_totalValence, count))
+            
         # print("Reset for next word")
         count = 1
         current_word = word
