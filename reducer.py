@@ -20,7 +20,7 @@ for line in sys.stdin:
 
     # convert count (currently a string) to int
     try:
-        valence = int(valence)
+        valence = float(valence)
     except ValueError:
         # count was not a number, so silently
         # ignore/discard this line
@@ -29,13 +29,14 @@ for line in sys.stdin:
     # by key (here: word) before it is passed to the reducer
     if current_word == word:
         current_totalValence += valence
-        count += 1
+        count += 1.0
         # print("Valence is", valence, "count is", count)
     else:
         if current_word:
             # write result to STDOUT
             average = float(current_totalValence/count)
             print ('%s\t%s' % (current_word, average))
+            print("Total sum is", current_totalValence, "number of words is", count)
             # print ('%s\t%s' % (current_totalValence, count))
         # print("Reset for next word")
         count = 1
