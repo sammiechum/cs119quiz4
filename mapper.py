@@ -24,8 +24,8 @@ def determineValence(content):
     for word in words:
         for i in range (len(library)):
             if (library[i]["word"] == word):
-                key = os.environ['mapreduce_map_input_file']
-                # key = word
+                filename = os.environ['mapreduce_map_input_file']
+                key = filename.split("hdfs://cluster-e75b-m/user/chums/quiz4/prez_speeches/")[1].split(".tar.gz")[0]
                 value = library[i]["value"]
                 print(key,"\t",value)
 
