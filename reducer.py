@@ -34,14 +34,14 @@ for line in sys.stdin:
     else:
         if current_word:
             # write result to STDOUT
-            average = current_totalValence/count
+            average = float(current_totalValence/count)
             print ('%s\t%s' % (current_word, average))
-            # print ('%s\t%s' % (current_word, current_count))
+            # print ('%s\t%s' % (current_totalValence, count))
         # print("Reset for next word")
         count = 1
         current_word = word
         current_totalValence = valence
-        print(current_word, current_totalValence)
+        # print(current_word, current_totalValence)
     
     
 # # do not forget to output the last word if needed!
